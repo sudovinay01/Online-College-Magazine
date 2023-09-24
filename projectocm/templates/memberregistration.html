@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member registration</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #99ccff;" >
+{% include 'logo.html' %}
+{% include 'menu.html' %}
+<br> <br>
+<form method="post">
+    {% csrf_token %}
+<div class="table-responsive rounded container">
+<h2>Registration</h2>
+            <table  border="1" class="table table-dark table-bordered table-striped table-hover ">
+        <tr><td>Member Name:</td><td> {{ form.member_name }}</td></tr>
+        <tr><td>Member ID:</td><td> {{ form.member_id}}</td></tr>
+        <tr><td>Password:</td><td><input type="password" name="password"> </td></tr>
+        <tr><td>Email ID:</td><td> {{ form.email_id}}</td></tr>
+        <tr><td>Address:</td><td> {{ form.address}}</td></tr>
+        <tr><td>Mobile num: </td><td>{{ form.mobile_num}}</td></tr>
+
+        <tr> <td><input type="submit" value="register" class="btn btn-primary"></td></tr>
+    </table>
+</div>
+</form>
+</body>
+</html>

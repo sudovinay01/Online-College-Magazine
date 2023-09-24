@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moderator</title>
+           <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #99ccff;">
+{% include 'logo.html' %}
+{% include 'adminmenu.html' %}
+<h3 align="center" class="bg-light m-3 p-3" >
+    <font color="black" > Moderator details </font>
+</h3>
+<div class=" bg-light"> 
+
+ <div class="table-responsive rounded">
+
+            <table class="table  table-bordered table-striped  ">
+     <tr>           <td>
+
+      
+            <form action="/addmoderator/" method="post">
+                    {% csrf_token %}
+       <div class="table-responsive rounded my-3">
+
+            <table   class="table table-dark table-bordered table-striped table-hover ">
+                <tr><td colspan="2"><h3>Add moderator</h3></td></tr>
+                    {{ form }}
+                        <tr>
+                            <th><button type="submit" class="btn btn-primary"> Save </button></th>
+                            <td> <button type="reset" class="btn btn-warning"> Reset </button> </td>
+                        </tr>
+                </table>
+            </div>
+             </form>
+       </td>
+<td>
+ <div class="table-responsive rounded my-3">
+
+            <table  border="1" class="table table-dark table-bordered table-striped table-hover ">
+                    <tr>
+                        <th> Category</th>
+                        <th> Moderator name</th>
+                        <th> User Id</th>
+                        <th> Mobile Number</th>
+                        <th> Email id </th>
+                        <th> Delete </th>
+                    </tr>
+                    {% for x in object_list %}
+                    <tr>
+                        <td>{{ x.category }}</td>
+                        <td>{{ x.moderator_name }}</td>
+                        <td>{{ x.userid }}</td>
+                        <td>{{ x.mobile_num }}</td>
+                        <td>{{ x.email_id }}</td>
+                        <th>
+                          <form action="/deletemoderator{{ x.userid }}/" method="post">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-danger"> Yes, Delete </button>
+                          </form>
+                        </th>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </td>
+       </tr>
+   </table>
+</div>
+  
+
+</div>
+</body>
+</html>

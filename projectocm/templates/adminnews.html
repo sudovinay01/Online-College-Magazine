@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin news</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background-color: #99ccff;" >
+{% include 'logo.html' %}
+{% include 'adminmenu.html' %}
+<div class="m-3 p-3 bg-light">
+
+
+    <div class="alert-success  m-3 p-3">
+        <h2>ADD NEWS</h2>
+                <form action="/saveadminnews/" method="post">
+                    {% csrf_token %}
+    
+                            <font color="black"> Enter news </font>
+                        HEADING<input type="text" name="heading" class=" form-group form-control " required="">
+                        ENTER NEWS<textarea name="enternews" class=" form-group form-control " required=""> </textarea> 
+                      
+                    
+                            <button type="submit" class="btn btn-primary"> SAVE </button>
+                                                     <input type="reset" value="Reset"class="btn btn-warning" />
+                       
+           
+                </form>
+ </div>
+ <div class="table-responsive rounded">
+
+            <table  border="1" class="table table-dark table-bordered table-striped table-hover ">
+            <tr> <th colspan="2"> News </th></tr>
+                        {% for x in data %}
+                            <tr>
+                                <td> {{ x.heading }}</td>
+                                <td> {{ x.enternews }}</td>
+                            </tr>
+                        {% endfor %}
+            </table>
+        </div>
+
+</div>
+<h3> <font color="alert alert-success" size="4">{{ msg }}</font> </h3>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #99ccff;">
+{% include 'logo.html' %}
+{% include 'menu.html' %}
+<form action="/moderatorlogin/" method="post" class="m-2 ">
+    {% csrf_token %}
+<div class="container card p-3">
+ <h2>  Moderator Login</h2> 
+  <label>User ID</label> 
+    <input type="number" placeholder="USERID" name="userid" required  class=" form-group form-control ">
+     <label>Password</label>
+    <input type="password" placeholder="PASSWORD" name="password" required class=" form-group form-control">
+    
+
+
+            <button type="submit" class="btn btn-primary"> Login </button>
+
+
+</div>
+</form>
+
+</body>
+</html>

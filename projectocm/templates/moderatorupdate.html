@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moderator</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #99ccff;">
+{% include 'moderatormenu.html' %}
+<table align="center" border="0">
+    <tr> <th colspan="2" align="center"> Moderator Update </th></tr>
+    <tr>
+        <td>
+            <form  method="post">
+                    {% csrf_token %}
+               <div class="table-responsive rounded">
+
+            <table  border="1" class="table table-dark table-bordered table-striped table-hover ">
+                    {{ form }}
+                        <tr>
+                            <th><button type="submit" class="btn btn-primary"> Update </button></th>
+                            <td> <button type="reset" class="btn btn-warning"> Reset </button> </td>
+                        </tr>
+                </table>
+            </div>
+             </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

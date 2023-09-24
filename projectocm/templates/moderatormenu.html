@@ -1,0 +1,28 @@
+{% include 'logo.html' %}
+
+
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark  shadow">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav navbar-nav mr-auto">
+      <li class="nav-item">
+       <a href="/moderatorhome/" class="nav-link"> Moderator Home</a>
+      </li>
+      <li class="nav-item">
+         <a href="/postarticlesmod/" class="nav-link "> Post Articles</a>
+      </li>
+      {% for x in data %}
+      <li class="nav-item">
+       <a href="/updatemodprofile{{ x.userid }}/" class="nav-link "> Update Profile </a>
+      </li>
+  {% endfor %}
+       
+       <li class="nav-item">
+         <a href="/moderatorlogout/" class="nav-link "> Logout</a>
+      </li>   
+     </ul>
+  </div>  
+</nav>

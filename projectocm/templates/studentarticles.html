@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Student Articles </title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #99ccff;">
+    
+{% include 'logo.html' %}
+{% include 'membermenu.html'%}
+<h3 align="center" class="bg-light m-3 p-3">
+    <font color="black"> Post Articles(Members) </font>
+</h3>
+<div class="table-responsive rounded">
+
+            <table  border="1" class="table table-light table-bordered table-stripe">
+<tr>
+<td>
+<form method="post">
+    {% csrf_token %}
+<div class="table-responsive rounded">
+
+            <table  border="1" class="table table-dark table-bordered table-striped table-hover ">
+    <tr> <th colspan="2"> Type your Article here </th></tr>
+      {{ form }}
+    <tr>
+        <th>
+            <button type="submit" class="btn btn-primary"> Save</button>
+        </th>
+        <th>
+            <button type="reset" class="btn btn-warning"> Reset</button>
+        </th>
+    </tr>
+</table>
+</div>
+    </form>
+<br> <br>
+</td>
+<td>
+<div class="table-responsive rounded">
+
+            <table  border="1" class="table table-dark table-bordered table-striped table-hover ">
+    <tr> <th colspan="7"> Student Article details </th></tr>
+    <tr>
+        <th>Article ID</th>
+        <th>Category</th>
+        <th>Tag</th>
+        <th>Article</th>
+   
+    </tr>
+    {% for x in object_list %}
+        <tr>
+            <td> {{ x.articleid }}</td>
+            <td> {{ x.category }}</td>
+            <td> {{ x.tag }}</td>
+            <td> {{ x.article }}</td>
+
+           
+        </tr>
+    {% endfor %}
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

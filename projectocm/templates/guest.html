@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #99ccff;">
+{% include 'logo.html' %}
+    {% include 'menu.html' %}
+<div class="table-responsive rounded">
+<center><h1>GUEST</h1></center>
+            <table  border="1" class="table table-dark table-bordered table-striped table-hover ">
+    <tr>
+        <th>Article ID</th>
+        <th>Category</th>
+        <th>Tag</th>
+        <th>Article</th>
+    </tr>
+    {% for x in object_list %}
+        <tr>
+            <td> {{ x.articleid }}</td>
+            <td> {{ x.category }}</td>
+            <td> {{ x.tag }}</td>
+            <td> {{ x.article }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+</body>
+</html>
+
